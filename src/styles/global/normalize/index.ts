@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import colors from '../colors'
 
 const Normalize = css`
   html {
@@ -7,6 +8,7 @@ const Normalize = css`
     font-family: 'Roboto', sans-serif;
   }
   body {
+    color: ${colors.black};
     margin: 0;
     font-family: 'Roboto', sans-serif;
   }

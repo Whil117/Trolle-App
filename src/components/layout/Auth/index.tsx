@@ -12,7 +12,6 @@ interface IProps {
 
 const AuthLayout: FC<IProps> = ({ children, router }) => {
   const protectedRoutes = ['/boards', '/']
-
   const { authethicated } = useRecoilValue<UserData>(userData)
 
   if (!authethicated && protectedRoutes.includes(router.pathname)) {

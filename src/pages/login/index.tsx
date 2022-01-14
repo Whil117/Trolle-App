@@ -24,7 +24,7 @@ const LoginPage: NextPage = () => {
 
   return (
     <S.AddTodoFormWrapper
-      customStyle={css`
+      customstyle={css`
         display: flex;
         width: 100%;
         justify-content: center;
@@ -33,7 +33,7 @@ const LoginPage: NextPage = () => {
       `}
     >
       <S.AddTodoFormWrapper
-        customStyle={css`
+        customstyle={css`
           display: flex;
           width: 100%;
           align-items: center;
@@ -43,7 +43,7 @@ const LoginPage: NextPage = () => {
         <div>
           <h1>Welcome to back!</h1>
           <S.LoginPageText
-            customStyle={css`
+            customstyle={css`
               opacity: 0.75;
               font-size: 1.1rem;
             `}
@@ -73,7 +73,7 @@ const LoginPage: NextPage = () => {
             {({ touched, errors }) => (
               <Form>
                 <S.AddTodoFormWrapper
-                  customStyle={css`
+                  customstyle={css`
                     display: flex;
                     flex-direction: column;
                     margin: 20px 0;
@@ -81,7 +81,7 @@ const LoginPage: NextPage = () => {
                 >
                   <S.AddTodoFormLabelText
                     htmlFor="email"
-                    customStyle={css`
+                    customstyle={css`
                       margin: 10px 0;
                       opacity: 0.75;
                     `}
@@ -99,7 +99,7 @@ const LoginPage: NextPage = () => {
                   )}
                 </S.AddTodoFormWrapper>
                 <S.AddTodoFormWrapper
-                  customStyle={css`
+                  customstyle={css`
                     display: flex;
                     flex-direction: column;
                     margin: 20px 0;
@@ -107,7 +107,7 @@ const LoginPage: NextPage = () => {
                 >
                   <S.AddTodoFormLabelText
                     htmlFor="password"
-                    customStyle={css`
+                    customstyle={css`
                       margin: 10px 0;
                       opacity: 0.75;
                     `}
@@ -125,7 +125,7 @@ const LoginPage: NextPage = () => {
                   )}
                 </S.AddTodoFormWrapper>
                 <ButtonForm
-                  customStyle={css`
+                  customstyle={css`
                     border: none;
                     align-items: center;
                     justify-content: center;
@@ -149,7 +149,7 @@ const LoginPage: NextPage = () => {
       </S.AddTodoFormWrapper>
 
       <S.AddTodoFormWrapper
-        customStyle={css`
+        customstyle={css`
           @media (max-width: 1096px) {
             display: none;
           }

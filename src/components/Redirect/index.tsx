@@ -25,7 +25,7 @@ const Redirect: FC<IProps> = (props) => {
     <SvgDynamicWrapper>
       <SvgDynamic
         href="/icons/redirect/loading"
-        customStyle={css`
+        customstyle={css`
           svg {
             width: 100px;
             height: 100px;

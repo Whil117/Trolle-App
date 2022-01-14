@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Field } from 'formik'
 
 export const LoginPageText = styled.p`
-  ${({ customStyle }: { customStyle?: SerializedStyles }) => customStyle}
+  ${({ customstyle }: { customstyle?: SerializedStyles }) => customstyle}
 `
 
 export const AddTodoFormInput = styled(Field)`
@@ -89,8 +89,8 @@ export const AddTodoFormImagePreview = styled.div`
 `
 export const AddTodoFormWrapper = styled.div`
   display: flex;
-  ${({ customStyle }: { customStyle?: SerializedStyles }) =>
-    customStyle && customStyle}
+  ${({ customstyle }: { customstyle?: SerializedStyles }) =>
+    customstyle && customstyle}
 `
 export const AddTodoFormError = styled.p`
   color: red;
@@ -101,5 +101,5 @@ export const AddTodoFormError = styled.p`
 export const AddTodoFormLabelText = styled.label`
   display: flex;
   font-weight: 600;
-  ${({ customStyle }: { customStyle?: SerializedStyles }) => customStyle}
+  ${({ customstyle }: { customstyle?: SerializedStyles }) => customstyle}
 `

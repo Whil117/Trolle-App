@@ -1,22 +1,18 @@
-// import Navbar from '@Components/Navbar'
-// import { Wrapper } from '@Styles/pages'
-import { NextRouter } from 'next/router'
-import { FC, ReactNode } from 'react'
-import { ToastContainer } from 'react-toastify'
-interface IProps {
-  children: ReactNode
-  router: NextRouter
-}
+import Navbar from '@Components/Navbar'
+import { WrapperStyled } from '@Styles/global'
+import { IProps } from '@Types/components/layout/auth/types'
+import { FC } from 'react'
+// import { ToastContainer } from 'react-toastify'
 
 export const invalidPages = ['/', '/login', '/register']
 const Layout: FC<IProps> = ({ children, router }) => {
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       {!invalidPages.includes(router.pathname) ? (
         <>
-          {/* <Navbar /> */}
-          <main>{children}</main>
+          <Navbar />
+          <WrapperStyled>{children}</WrapperStyled>
         </>
       ) : (
         children

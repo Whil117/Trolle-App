@@ -13,11 +13,11 @@ interface Styles {
 interface IProps {
   href?: string
   styles?: Styles
-  customStyle?: SerializedStyles
+  customstyle?: SerializedStyles
 }
 
 const SvgDynamicWrapper = styled.div<IProps>`
-  ${({ customStyle }) => customStyle}
+  ${({ customstyle }) => customstyle}
 `
 const SvgDynamic: FC<IProps> = (props) => {
   const DynamicIcon = useMemo(
@@ -27,7 +27,7 @@ const SvgDynamic: FC<IProps> = (props) => {
 
   if (!DynamicIcon) return null
   return (
-    <SvgDynamicWrapper styles={props.styles} customStyle={props.customStyle}>
+    <SvgDynamicWrapper styles={props.styles} customstyle={props.customstyle}>
       <DynamicIcon />
     </SvgDynamicWrapper>
   )
