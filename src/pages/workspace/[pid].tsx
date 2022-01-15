@@ -22,6 +22,14 @@ const WorkspaceColumns = atom({
   key: 'workspaceColumns',
   default: {} as typeWorkspaceColumns<WorkspaceColumns[]>,
   effects_UNSTABLE: [persistAtom],
+
+  // effects_UNSTABLE: [
+  //   persistAtom,
+  //   persistAtom({
+  //     key: 'workspaceColumns',
+  //     serialize: (workspaceColumns: typeWorkspaceColumns<WorkspaceColumns[]>) => {
+  //       return workspaceColumns
+  //     },
 })
 
 const filterWorkspace = (pid: string) =>
@@ -62,6 +70,7 @@ const Workspace: FC<IProps> = ({ pid }) => {
         (column) => column.id_workspace_column !== id
       ),
     })
+
   return (
     <div>
       <h1>{workspace?.title_workspace}</h1>

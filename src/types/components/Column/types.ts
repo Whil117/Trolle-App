@@ -11,6 +11,7 @@ export interface IProps {
 export type workSpaceSection = {
   id_wcs: string
   title_wcs: string
-  image_wcs?: string
+  text_wcs?: string
+  image_wcs?: string | ArrayBuffer | null | undefined
   check_wcs?: boolean
 }

@@ -3,19 +3,19 @@ import Image from 'next/image'
 import styled from '@emotion/styled'
 import { SerializedStyles } from '@emotion/react'
 
-type CustomStyle = { customStyle?: SerializedStyles }
+type customstyle = { customstyle?: SerializedStyles }
 interface IProps {
-  src: string
+  src: string | any
   alt: string
   width: number
   height: number
-  CustomStyle?: CustomStyle['customStyle']
+  customstyle?: customstyle['customstyle']
 }
 
-export const ImageWrapper = styled(Image)<CustomStyle>`
+export const ImageWrapper = styled(Image)<customstyle>`
   object-fit: cover;
   border-radius: 10px;
-  ${({ customStyle }) => customStyle}
+  ${({ customstyle }) => customstyle}
 `
 
 const AtomImage: FC<IProps> = (props) => {
@@ -25,7 +25,7 @@ const AtomImage: FC<IProps> = (props) => {
       alt={props.alt}
       width={props.width}
       height={props.height}
-      customStyle={props.CustomStyle}
+      customstyle={props.customstyle}
     />
   )
 }
