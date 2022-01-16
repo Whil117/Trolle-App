@@ -2,6 +2,7 @@ import Column from '@Components/Column/Column'
 import FormAdd from '@Components/FormAdd'
 import { css } from '@emotion/react'
 import { Wrapper } from '@Styles/global'
+import { WorkspaceInput } from '@Styles/pages/workspace/section'
 import { Workspace } from '@Types/pages/boards/types'
 import {
   IProps,
@@ -10,26 +11,18 @@ import {
 } from '@Types/pages/workspace/types'
 import idAssignment from '@Utils/id'
 import reorder from '@Utils/reorder'
-import { NextPageContext } from 'next'
+import { NextPage, NextPageContext } from 'next'
 import { workSpacesState } from 'pages/boards'
-import { FC } from 'react'
+import { ChangeEvent } from 'react'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { atom, selector, useRecoilState, useRecoilValue } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 const { persistAtom } = recoilPersist()
 
-const WorkspaceColumns = atom({
+export const WorkspaceColumns2 = atom({
   key: 'workspaceColumns',
   default: {} as typeWorkspaceColumns<WorkspaceColumns[]>,
   effects_UNSTABLE: [persistAtom],
-
-  // effects_UNSTABLE: [
-  //   persistAtom,
-  //   persistAtom({
-  //     key: 'workspaceColumns',
-  //     serialize: (workspaceColumns: typeWorkspaceColumns<WorkspaceColumns[]>) => {
-  //       return workspaceColumns
-  //     },
 })
 
 const filterWorkspace = (pid: string) =>
@@ -49,17 +42,17 @@ const filterWorkspaceColumns = (pid: string) =>
   selector({
     key: 'filterWorkspaceColumns',
     get: ({ get }) => {
-      const dataSelect = get(WorkspaceColumns)
+      const dataSelect = get(WorkspaceColumns2)
       const filteredData = dataSelect[pid]
       return filteredData
     },
   })
 
-const Workspace: FC<IProps> = ({ pid }) => {
+const Workspace: NextPage<IProps> = ({ pid }) => {
   const workspace = useRecoilValue<Workspace>(filterWorkspace(pid))
   const [workspaceColumn, setWorkspaceColumn] =
-    useRecoilState<typeWorkspaceColumns<WorkspaceColumns[]>>(WorkspaceColumns)
-
+    useRecoilState<typeWorkspaceColumns<WorkspaceColumns[]>>(WorkspaceColumns2)
+  const [state, setstate] = useRecoilState(workSpacesState)
   const workspaceColumns = useRecoilValue<WorkspaceColumns[]>(
     filterWorkspaceColumns(pid)
   )
@@ -71,9 +64,31 @@ const Workspace: FC<IProps> = ({ pid }) => {
       ),
     })
 
+  const handleEditTitle = (event: ChangeEvent<HTMLInputElement>) => {
+    setstate(
+      state.map((item: Workspace) => {
+        if (item.id_workspace === pid) {
+          return {
+            ...item,
+            title_workspace: event.target.value,
+          }
+        }
+        return item
+      })
+    )
+  }
+
   return (
     <div>
-      <h1>{workspace?.title_workspace}</h1>
+      <WorkspaceInput
+        type="text"
+        value={workspace?.title_workspace}
+        onChange={handleEditTitle}
+        customstyle={css`
+          margin: 20px 0;
+          box-shadow: none;
+        `}
+      />
       <Wrapper
         customstyle={css`
           display: flex;
@@ -131,7 +146,12 @@ const Workspace: FC<IProps> = ({ pid }) => {
                             handleDeleteColumn(column.id_workspace_column)
                           }
                           key={column.id_workspace_column}
-                          {...{ column, setWorkspaceColumn, draggableProvided }}
+                          {...{
+                            column,
+                            setWorkspaceColumn,
+                            draggableProvided,
+                            pid,
+                          }}
                         />
                       )}
                     </Draggable>

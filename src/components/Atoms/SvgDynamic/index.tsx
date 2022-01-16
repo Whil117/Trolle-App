@@ -17,6 +17,9 @@ interface IProps {
 }
 
 const SvgDynamicWrapper = styled.div<IProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   ${({ customstyle }) => customstyle}
 `
 const SvgDynamic: FC<IProps> = (props) => {

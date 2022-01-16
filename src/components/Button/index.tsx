@@ -6,6 +6,7 @@ import { DraggableProvided } from 'react-beautiful-dnd'
 interface IProps {
   click?: () => void
   buttonName: string
+  disabled?: boolean
   style?: SerializedStyles
   draggableProvided?: DraggableProvided
 }
@@ -13,6 +14,7 @@ interface IProps {
 const ButtonComponent: FC<IProps> = (props) => {
   return (
     <ButtonForm
+      disabled={props.disabled ? true : false}
       onClick={props.click}
       customstyle={props.style}
       {...props.draggableProvided?.draggableProps}

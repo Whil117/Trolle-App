@@ -4,8 +4,10 @@ import { DraggableProvided } from 'react-beautiful-dnd'
 
 export interface IProps {
   column: WorkspaceColumns
+  disabled?: boolean
   ArrowFn: (id: string) => void
   draggableProvided: DraggableProvided
+  pid: string
 }
 
 export type workSpaceSection = {
