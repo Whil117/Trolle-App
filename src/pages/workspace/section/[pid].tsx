@@ -92,7 +92,7 @@ const WorkspaceSection: NextPage<IProps> = ({ pid, id }) => {
   const handleDeleteChecklist = (id_checklist_column: string) => {
     setChecklists({
       ...checklists,
-      [pid]: checklists[pid].filter(
+      [id]: checklists[id].filter(
         (item) => item.id_checklist_column !== id_checklist_column
       ),
     })
@@ -171,8 +171,8 @@ const WorkspaceSection: NextPage<IProps> = ({ pid, id }) => {
               display: flex;
               justify-content: center;
               align-items: center;
-              background-image: ${section.image_wcs
-                ? `url(${section.image_wcs})`
+              background-image: ${section?.image_wcs
+                ? `url(${section?.image_wcs})`
                 : 'none'};
               height: 300px;
               background-origin: content-box;
@@ -228,6 +228,7 @@ const WorkspaceSection: NextPage<IProps> = ({ pid, id }) => {
                 name="title_wcs"
                 value={section?.title_wcs}
                 onChange={handleChange}
+                placeholder="Title"
                 customstyle={css`
                   padding: 0;
                   box-shadow: none;

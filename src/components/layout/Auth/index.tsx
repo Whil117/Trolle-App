@@ -11,15 +11,20 @@ interface IProps {
 }
 
 const AuthLayout: FC<IProps> = ({ children, router }) => {
-  const protectedRoutes = ['/boards', '/']
+  const protectedRoutes = [
+    '/boards',
+    '/workspace/[pid]',
+    '/workspace/section/[id]',
+    '/settings',
+  ]
   const { authethicated } = useRecoilValue<UserData>(userData)
 
   if (!authethicated && protectedRoutes.includes(router.pathname)) {
-    return <Redirect href="/login" />
+    return <Redirect {...{ router }} href="/login" />
   }
 
   if (authethicated && invalidPages.includes(router.pathname)) {
-    return <Redirect href="/boards" />
+    return <Redirect {...{ router }} href="/boards" />
   }
   return <>{children}</>
 }

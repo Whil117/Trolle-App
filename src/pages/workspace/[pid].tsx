@@ -84,6 +84,7 @@ const Workspace: NextPage<IProps> = ({ pid }) => {
         type="text"
         value={workspace?.title_workspace}
         onChange={handleEditTitle}
+        placeholder="Workspace title"
         customstyle={css`
           margin: 20px 0;
           box-shadow: none;
@@ -129,7 +130,6 @@ const Workspace: NextPage<IProps> = ({ pid }) => {
                     display: flex;
                     align-items: flex-start;
                     flex-wrap: wrap;
-                    height: 100vh;
                   `}
                   ref={droppableProvided.innerRef}
                   {...droppableProvided.droppableProps}
@@ -148,7 +148,6 @@ const Workspace: NextPage<IProps> = ({ pid }) => {
                           key={column.id_workspace_column}
                           {...{
                             column,
-                            setWorkspaceColumn,
                             draggableProvided,
                             pid,
                           }}

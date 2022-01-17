@@ -100,9 +100,9 @@ const Column: FC<IProps> = ({
               width: 230px;
               height: 40px;
               font-size: 1.25rem;
-              /* margin: 10px 0; */
               z-index: 0;
             `}
+            placeholder="Column title"
             type="text"
             value={column.title_workspace_column}
             onChange={handleChangeTitle}
