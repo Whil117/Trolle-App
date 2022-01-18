@@ -17,6 +17,14 @@ const Navbar: FC<IProps> = () => {
       >
         <NavbarLink>Boards</NavbarLink>
       </Link>
+      {/* <Link
+        href={{
+          pathname: '/boards',
+        }}
+        passHref
+      >
+        <NavbarLink>Favorites</NavbarLink>
+      </Link> */}
       <Link
         href={{
           pathname: '/settings',

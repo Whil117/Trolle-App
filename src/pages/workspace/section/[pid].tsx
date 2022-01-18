@@ -307,7 +307,6 @@ const WorkspaceSection: NextPage<IProps> = ({ pid, id }) => {
                           display: flex;
                           align-items: flex-start;
                           flex-wrap: wrap;
-                          height: 100vh;
                         `}
                         ref={droppableProvided.innerRef}
                         {...droppableProvided.droppableProps}

@@ -17,7 +17,6 @@ interface IProps {
   submit: (values: { title: string }) => void
   style?: SerializedStyles
 }
-interface IProps {}
 
 const FormAddNewItem: FC<IProps> = (props) => {
   return (

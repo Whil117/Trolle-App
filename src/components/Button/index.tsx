@@ -13,17 +13,16 @@ interface IProps {
 
 const ButtonComponent: FC<IProps> = (props) => {
   return (
-    <ButtonForm
-      disabled={props.disabled ? true : false}
-      onClick={props.click}
-      customstyle={props.style}
-      {...props.draggableProvided?.draggableProps}
-      {...props.draggableProvided?.dragHandleProps}
-      ref={props.draggableProvided?.innerRef}
-    >
-      {props.buttonName}
-      {props.children}
-    </ButtonForm>
+    <>
+      <ButtonForm
+        disabled={props.disabled ? true : false}
+        onClick={props.click}
+        customstyle={props.style}
+      >
+        {props.buttonName}
+        {props.children}
+      </ButtonForm>
+    </>
   )
 }
 
